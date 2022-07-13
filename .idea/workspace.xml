@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea437711-db0d-487f-8dbd-ef2dc21bfdd8" name="Changes" comment="Implementando cadastro de usuários&#10;Funções Login e Logout">
-      <changelist_data name="Gustavo Duran" email="gustavoduran22@gmail.com" />
-      <change afterPath="$PROJECT_DIR$/banco.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/usuario.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/usuario.py" afterDir="false" />
+    <list default="true" id="ea437711-db0d-487f-8dbd-ef2dc21bfdd8" name="Changes" comment="Implementando cadastro de usuários&#10;GET e DELETE de Usuário">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/hotel.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hotel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/hotel.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/hotel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/usuario.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/usuario.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/usuario.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/usuario.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +23,11 @@
   </component>
   <component name="Git.Settings">
     <option name="PATH_TO_GIT" value="C:\Program Files\Git\bin\git.exe" />
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Gustavo Duran &lt;gustavoduran22@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--tags" />
@@ -156,8 +156,18 @@
       <option name="project" value="LOCAL" />
       <updated>1657721832857</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implementando cadastro de usuários&#10;GET e DELETE de Usuário">
+      <created>1657730244036</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657730244037</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -186,6 +196,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Criando BD através do sql_alchemy.py e configurando os arquivos \models\hotel.py e \resources\hotel.py para se comunicar com o BD banco.db." />
     <MESSAGE value="Refinamento do código e tratamento de erros.&#10;Código 500  # Internal Server Error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refinamento do código e tratamento de erros.&#10;Código 500  # Internal Server Error" />
+    <MESSAGE value="Implementando cadastro de usuários&#10;GET e DELETE de Usuário" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementando cadastro de usuários&#10;GET e DELETE de Usuário" />
   </component>
 </project>
