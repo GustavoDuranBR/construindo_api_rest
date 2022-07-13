@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea437711-db0d-487f-8dbd-ef2dc21bfdd8" name="Changes" comment="Criando BD através do sql_alchemy.py e configurando os arquivos \models\hotel.py e \resources\hotel.py para se comunicar com o BD banco.db.">
+    <list default="true" id="ea437711-db0d-487f-8dbd-ef2dc21bfdd8" name="Changes" comment="Implementando cadastro de usuários&#10;Funções Login e Logout">
+      <changelist_data name="Gustavo Duran" email="gustavoduran22@gmail.com" />
       <change afterPath="$PROJECT_DIR$/banco.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/001-Curso_Udemy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/001-Curso_Udemy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/usuario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/usuario.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/hotel.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hotel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/hotel.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/hotel.py" afterDir="false" />
     </list>
@@ -25,6 +27,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PATH_TO_GIT" value="C:\Program Files\Git\bin\git.exe" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -44,9 +53,14 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/gustavo/Documents/Duran/001-Curso_Udemy/venv/Scripts&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
 }</component>
+  <component name="Push.Settings">
+    <force-push-targets>
+      <force-push-target remote-path="origin" branch="main" />
+    </force-push-targets>
+  </component>
   <component name="RunManager" selected="Python.app">
     <configuration name="app (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="001-Curso_Udemy" />
@@ -135,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656959327978</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Refinamento do código e tratamento de erros.&#10;Código 500  # Internal Server Error">
+      <created>1657721832857</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657721832857</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,7 +164,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -152,6 +185,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Criando BD através do sql_alchemy.py e configurando os arquivos \models\hotel.py e \resources\hotel.py para se comunicar com o BD banco.db." />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando BD através do sql_alchemy.py e configurando os arquivos \models\hotel.py e \resources\hotel.py para se comunicar com o BD banco.db." />
+    <MESSAGE value="Refinamento do código e tratamento de erros.&#10;Código 500  # Internal Server Error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refinamento do código e tratamento de erros.&#10;Código 500  # Internal Server Error" />
   </component>
 </project>

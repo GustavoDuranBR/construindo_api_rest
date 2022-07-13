@@ -21,7 +21,7 @@ class HotelModel(banco.Model):
         return {
             'hotel_id': self.hotel_id,
             'nome': self.nome,
-            'estralas': self.estrelas,
+            'estrelas': self.estrelas,
             'diaria': self.diaria,
             'cidade': self.cidade
         }
@@ -46,3 +46,4 @@ class HotelModel(banco.Model):
     def delete_hotel(self):
         banco.session.delete(self)
         banco.session.commit()
+
