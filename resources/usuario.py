@@ -1,7 +1,9 @@
 from flask_restful import Resource, reqparse
 from models.usuario import UserModel
 from flask_jwt_extended import create_access_token
-from werkzeug.security import safe_join
+from werkzeug.security import safe_str_cmp
+from flask_jwt_extended import jwt_required
+
 
 atributos = reqparse.RequestParser()
 atributos.add_argument('login', type=str, required=True, help='The field "login" cannot be left blank')
@@ -29,7 +31,8 @@ class User(Resource):
 
 class UserRegister(Resource):
     # /cadastro
-    def post(self):
+    @staticmethod
+    def post():
         dados = atributos.parse_args()
 
         if UserModel.find_by_login(dados['login']):
@@ -42,13 +45,12 @@ class UserRegister(Resource):
 
 class UserLogin(Resource):
 
-    @classmethod
-    def post(cls):
+    @jwt_required
+    def post(Resource):
         dados = atributos.parse_args()
-
         user = UserModel.find_by_login(dados['login'])
 
-        if user and safe_join(user.senha, dados['senha']):
+        if user and safe_str_cmp(user.senha, dados['senha']):
             token_de_acesso = create_access_token(identity=user.user_id)
             return {access_token: token_de_acesso}, 200
         return {'message': 'The user or password is incorrect.'}, 401
