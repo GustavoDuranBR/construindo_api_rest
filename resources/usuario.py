@@ -46,7 +46,7 @@ class UserRegister(Resource):
 class UserLogin(Resource):
 
     @jwt_required
-    def post(Resource):
+    def post(Resource, dados, user):
         dados = atributos.parse_args()
         user = UserModel.find_by_login(dados['login'])
 
