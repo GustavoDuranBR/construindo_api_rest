@@ -1,3 +1,6 @@
 venv
 .idea/
 banco.db
+workspace.xml
+misc.xml
+001-Curso_Udemy.iml
