@@ -3,12 +3,17 @@ from flask_restful import Api
 from resources.hotel import Hoteis, Hotel
 from resources.usuario import User, UserRegister, UserLogin
 from flask_jwt_extended import JWTManager
+from flask_marshmallow import Marshmallow
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banco.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = 'secret'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 api = Api(app)
 jwt = JWTManager(app)
+ma = Marshmallow(app)
 
 
 @app.before_first_request
