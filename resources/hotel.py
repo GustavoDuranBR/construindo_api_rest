@@ -2,33 +2,7 @@ from flask_restful import Resource, reqparse
 from models.hotel import HotelModel
 from flask_jwt_extended import jwt_required
 import sqlite3
-
-
-def normalize_path_params(cidade=None,
-                          estrelas_min=0,
-                          estrelas_max=5,
-                          diaria_min=0,
-                          diaria_max=10000,
-                          limit=10,
-                          offset=0, **dados):
-    if cidade:
-        return {
-            'estrelas_min': estrelas_min,
-            'estrelas_max': estrelas_max,
-            'diaria_min': diaria_min,
-            'diaria_max': diaria_max,
-            'cidade': cidade,
-            'limit': limit,
-            'offset': offset
-        }
-    return {
-            'estrelas_min': estrelas_min,
-            'estrelas_max': estrelas_max,
-            'diaria_min': diaria_min,
-            'diaria_max': diaria_max,
-            'limit': limit,
-            'offset': offset
-        }
+from resources.filtros import *
 
 
 # path /hoteis?cidade=São Paulo
@@ -52,21 +26,17 @@ class Hoteis(Resource):
         parametros = normalize_path_params(**dados_validos)
 
         if not parametros.get('cidade'):
-            consulta = "SELECT * FROM hoteis \
-            WHERE (estrelas > ? and estrelas < ?)\
-            and (diaria > ? and diaria < ?)\
-            LIMIT ? OFFSET ?"
+            consulta = consulta_sem_cidade
             tupla = tuple([parametros[chave] for chave in parametros])
             resultado = cursor.execute(consulta, tupla)
         else:
-            consulta = "SELECT * FROM hoteis \
-            WHERE (estrelas > ? and estrelas < ?) \
-            and (diaria > ? and diaria < ?) \
-            and cidade = ? LIMIT ? OFFSET ?"
+            consulta = consulta_com_cidade
             tupla = tuple([parametros[chave] for chave in parametros])
             resultado = cursor.execute(consulta, tupla)
 
-        hoteis = []
+        hoteis = [
+
+        ]
         for linha in resultado:
             hoteis.append({
                 'hotel_id': linha[0],
@@ -84,6 +54,7 @@ class Hotel(Resource):
     argumentos.add_argument('estrelas', type=float, required=True, help='The field "estrelas" cannot be blank')
     argumentos.add_argument('diaria', type=float, required=True, help='The field "diaria" cannot be blank')
     argumentos.add_argument('cidade', type=str, required=True, help='The field "estrelas" cannot be blank')
+    argumentos.add_argument('site_id', type=int, required=True, help='Every hotel needs to be linked with a site.')
 
     def get(self, hotel_id):
         hotel = HotelModel.find_hotel(hotel_id)
@@ -116,7 +87,7 @@ class Hotel(Resource):
         try:
             hotel.save_hotel()
         except:
-            return {'message': 'An internal error ocurred trying to save hotel.'}, 500  #Internal Server Error
+            return {'message': 'An internal error ocurred trying to save hotel.'}, 500  # Internal Server Error
         return hotel.json(), 201
 
     @jwt_required()
@@ -129,4 +100,3 @@ class Hotel(Resource):
                 return {'message': 'An error ocurred trying to delete hotel.'}, 500
             return {'message': 'Hotel deleted.'}
         return {'message': 'Hotel not found.'}, 404
-
