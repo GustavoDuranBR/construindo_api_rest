@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea437711-db0d-487f-8dbd-ef2dc21bfdd8" name="Changes" comment="Correções no método get do arquivo resources\site.py&#10;&#10;Correções do arquivo models\site.py">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banco.bd" beforeDir="false" afterPath="$PROJECT_DIR$/banco.bd" afterDir="false" />
-    </list>
+    <list default="true" id="ea437711-db0d-487f-8dbd-ef2dc21bfdd8" name="Changes" comment="gitignore atualizado" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -218,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659840893745</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="gitignore atualizado">
+      <created>1659842950979</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1659842950979</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -258,6 +262,7 @@
     <MESSAGE value="Implementei as funções login, logout e filtros de pesquisa no GET \hoteis" />
     <MESSAGE value="Implementei o modelo site.py onde faz o registro do site no banco.db&#10;&#10;Implementei a Classe Sites(Resourse) e Site(Resourse) com os métodos get, post e delete.&#10;&#10;Refatoração do código:&#10;Criei o arquivo filtros.py para limpar o código e deixar com uma melhor organização." />
     <MESSAGE value="Correções no método get do arquivo resources\site.py&#10;&#10;Correções do arquivo models\site.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correções no método get do arquivo resources\site.py&#10;&#10;Correções do arquivo models\site.py" />
+    <MESSAGE value="gitignore atualizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore atualizado" />
   </component>
 </project>
