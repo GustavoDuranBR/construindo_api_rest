@@ -1,49 +1,48 @@
 from flask_restful import Resource, reqparse
 from models.hotel import HotelModel
 from flask_jwt_extended import jwt_required
-import sqlite3
+from models.site import SiteModel
 from resources.filtros import *
+import sqlite3
+
 
 
 # path /hoteis?cidade=São Paulo
-path_params = reqparse.RequestParser()
-path_params.add_argument('cidade', type=str)
-path_params.add_argument('estrela_min', type=float)
-path_params.add_argument('estrela_max', type=float)
-path_params.add_argument('diaria_min', type=float)
-path_params.add_argument('diaria_max', type=float)
-path_params.add_argument('limit', type=float)
-path_params.add_argument('offset', type=float)
+argumentos = reqparse.RequestParser()
+argumentos.add_argument('cidade', type=str)
+argumentos.add_argument('estrela_min', type=float)
+argumentos.add_argument('estrela_max', type=float)
+argumentos.add_argument('diaria_min', type=float)
+argumentos.add_argument('diaria_max', type=float)
+argumentos.add_argument('limit', type=float)
+argumentos.add_argument('offset', type=float)
 
 
 class Hoteis(Resource):
     def get(self):
-        connection = sqlite3.connect('banco.db')
+        connection = sqlite3.connect('banco.bd')
         cursor = connection.cursor()
 
-        dados = path_params.parse_args()
+        dados = argumentos.parse_args()
         dados_validos = {chave: dados[chave] for chave in dados if dados[chave] is not None}
         parametros = normalize_path_params(**dados_validos)
 
         if not parametros.get('cidade'):
-            consulta = consulta_sem_cidade
             tupla = tuple([parametros[chave] for chave in parametros])
-            resultado = cursor.execute(consulta, tupla)
+            resultado = cursor.execute(consulta_sem_cidade, tupla)
         else:
-            consulta = consulta_com_cidade
             tupla = tuple([parametros[chave] for chave in parametros])
-            resultado = cursor.execute(consulta, tupla)
+            resultado = cursor.execute(consulta_com_cidade, tupla)
 
-        hoteis = [
-
-        ]
+        hoteis = []
         for linha in resultado:
             hoteis.append({
                 'hotel_id': linha[0],
                 'nome': linha[1],
                 'estrelas': linha[2],
                 'diaria': linha[3],
-                'cidade': linha[4]
+                'cidade': linha[4],
+                'site_id': linha[5]
             })
         return {'hoteis': hoteis}  # SELECT * FROM hoteis
 
@@ -69,6 +68,9 @@ class Hotel(Resource):
 
         dados = Hotel.argumentos.parse_args()
         hotel = HotelModel(hotel_id, **dados)
+
+        if not SiteModel.find_by_id(dados['site_id']):
+            return {'message': 'The hotel must be associated to a valid site id.'}, 400
         try:
             hotel.save_hotel()
         except:

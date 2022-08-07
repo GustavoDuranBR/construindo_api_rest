@@ -4,7 +4,7 @@ def normalize_path_params(cidade=None,
                           estrelas_max=5,
                           diaria_min=0,
                           diaria_max=10000,
-                          limit=10,
+                          limit=50,
                           offset=0, **dados):
     if cidade:
         return {
@@ -27,11 +27,11 @@ def normalize_path_params(cidade=None,
 
 
 consulta_sem_cidade = "SELECT * FROM hoteis \
-            WHERE (estrelas >= ? and estrelas <= ?)\
-            and (diaria >= ? and diaria <= ?)\
-            LIMIT ? OFFSET ?"
+WHERE (estrelas >= ? and estrelas <= ?)\
+and (diaria >= ? and diaria <= ?)\
+LIMIT ? OFFSET ?"
 
 consulta_com_cidade = "SELECT * FROM hoteis \
-            WHERE (estrelas >= ? and estrelas <= ?) \
-            and (diaria >= ? and diaria <= ?) \
-            and cidade = ? LIMIT ? OFFSET ?"
+WHERE (estrelas >= ? and estrelas <= ?) \
+and (diaria >= ? and diaria <= ?) \
+and cidade = ? LIMIT ? OFFSET ?"
